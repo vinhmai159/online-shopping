@@ -1,0 +1,33 @@
+{
+  "name": "online-shopping",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec babel-node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-register": "^6.26.0",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
+    "es6": "0.0.7",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "express-validation": "^1.0.3",
+    "joi": "^14.3.1",
+    "mongoose": "^5.7.6",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/node": "^7.6.3",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/register": "^7.6.2",
+    "grunt-apidoc": "^0.11.0"
+  }
+}
