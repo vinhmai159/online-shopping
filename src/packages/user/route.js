@@ -1,5 +1,5 @@
 import express from 'express'
-import UserCtrl from './controller'
+import UserController from './controller'
 import paramValidator from '../validator'
 
 const router = express.Router()
@@ -14,7 +14,8 @@ const router = express.Router()
  *
  * @apiParam {String} email
  * @apiParam {String} password must be in md5 format
+ * @apiParam {Number} [role] role of users, list acceptabe value: `1`, `2`, `3` (correcspond to `admin`, `editor`, `normal user`
  */
-router.post('/register', paramValidator.user.validateRegister, UserCtrl.register)
+router.post('/', paramValidator.user.validateRegister, UserController.register)
 
 export default router

@@ -1,12 +1,12 @@
-import { User } from '../../models'
-import repo from './repository'
+import repository from './repository'
+import bcrypt from  '../../utils/bcrypt'
 
-async function signupUser(body) {
-  let user = await repo.createUser(body)
-  user = await User.commonUserData(user.toJSON())
+async function register(req) {
+  req.password = bcrypt.hashPassword(req.password)
+  let user = await repository.createUser(req)
   return user
 }
 
 export default {
-  signupUser
+  register
 }

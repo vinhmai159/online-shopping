@@ -13,7 +13,7 @@ To start server:
 # npm start
 
 To generate api doc:
-# apidoc -e "(node_modules|public)" -o public/apidoc
+# npm run apidoc
 Reference documents: http://apidocjs.com/
 
 Link to api doc version 1.0.0: 

@@ -9,6 +9,10 @@ const UserSchema = new Schema({
     index: true
   },
   password: String,
+  role: {
+    type: Number,
+    default: statics.commonUser
+  },
   createdAt: {
     type: Date,
     default: Date.now
@@ -26,11 +30,10 @@ UserSchema.methods = methods
  * Presave hook
  */
 UserSchema.pre('save', function (next) {
-  // Set search string
   this.updatedAt = new Date()
-
   next()
 })
+
 
 // Export
 export default mongoose.model('User', UserSchema)

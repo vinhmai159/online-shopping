@@ -1,7 +1,7 @@
 import { User } from '../../models'
 
-async function createUser(body) {
-  return User.create(body)
+async function createUser(req) {
+  return User.create(req)
 }
 
 export default {
