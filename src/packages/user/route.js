@@ -5,7 +5,7 @@ import paramValidator from '../validator'
 const router = express.Router()
 
 /**
- * @api {post} /register Register
+ * @api {post} /users/ Register
  * @apiGroup Users
  *
  * @apiName Register
@@ -17,5 +17,18 @@ const router = express.Router()
  * @apiParam {Number} [role] role of users, list acceptabe value: `1`, `2`, `3` (correcspond to `admin`, `editor`, `normal user`
  */
 router.post('/', paramValidator.user.validateRegister, UserController.register)
+
+/**
+ * @api {post} /users/login Login
+ * @apiGroup Users
+ *
+ * @apiName Login
+ *
+ * @apiVersion 1.0.0
+ *
+ * @apiParam {String} email
+ * @apiParam {String} password must be in md5 format
+ */
+router.post('/login', paramValidator.user.validateLogin, UserController.login)
 
 export default router

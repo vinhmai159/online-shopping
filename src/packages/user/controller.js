@@ -11,6 +11,17 @@ async function register(req, res) {
   res.jsonp(responseBuilder.build(responseBuilder.statusCode.success, user, responseBuilder.message.success))
 }
 
+async function login(req, res) {
+  const [error, user] = await to(service.login(req.body))
+  if (error) {
+    res.jsonp(responseBuilder.build(responseBuilder.statusCode.error, {}, error.message))
+  }
+  if (!user) {
+    res.jsonp(responseBuilder.build(responseBuilder.statusCode.notFound, {}, responseBuilder.message.notFound))
+  }
+  res.jsonp(responseBuilder.build(responseBuilder.statusCode.success, {user: user}, responseBuilder.message.success))
+}
 export default {
   register,
+  login
 }

@@ -8,12 +8,14 @@ function build(statusCode, data = {}, message = {}) {
 
 const statusCode = {
     success: 200,
-    error: 400
+    error: 400,
+    notFound: 404
 }
 
 const message = {
     success: "Success",
-    error: "Error"
+    error: "Error",
+    notFound: "Not found"
 }
 export default {
     build,
