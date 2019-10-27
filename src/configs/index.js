@@ -11,5 +11,7 @@ export default {
       socketTimeoutMS: 300000,
       useUnifiedTopology: true
     }
-  }
+  },
+  secretKey: 'ttcn',
+  publicKey: 'online-shopping'
 }
