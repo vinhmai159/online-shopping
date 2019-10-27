@@ -7,5 +7,11 @@ export default {
       email: Joi.string().required().regex(validator.regex.email).label('email'),
       password: Joi.string().required().regex(validator.regex.password).label('password'),
     }
+  },
+  validateLogin: {
+    param: {
+      email: Joi.string().required().regex(validator.regex.email).label('email'),
+      password: Joi.string().required().regex(validator.regex.password).label('password'),
+    }
   }
 }

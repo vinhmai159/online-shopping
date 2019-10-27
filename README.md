@@ -7,7 +7,7 @@ Author:
 To init project:
 # npm install
 
-#Add .env through .env.example
+# Add .env through .env.example
 
 To start server:
 # npm start

@@ -11,7 +11,7 @@ const UserSchema = new Schema({
   password: String,
   role: {
     type: Number,
-    default: statics.commonUser
+    default: statics.userRole.commonUser
   },
   createdAt: {
     type: Date,
