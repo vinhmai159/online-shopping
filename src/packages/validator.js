@@ -1,5 +1,6 @@
 import validate from 'express-validation'
 import user from './user/validator'
+import category from './category/validator'
 
 function parse(object) {
   const data = {}
@@ -10,5 +11,6 @@ function parse(object) {
 }
 
 export default {
-  user: parse(user)
+  user: parse(user),
+  category: parse(category)
 }
