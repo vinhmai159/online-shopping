@@ -29,7 +29,13 @@ async function login(req) {
   return null
 }
 
+async function isValidUser(option) {
+  const user = repository.findUser(option, [])
+  return user
+}
+
 export default {
   register,
-  login
+  login,
+  isValidUser
 }

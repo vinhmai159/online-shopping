@@ -13,5 +13,5 @@ export default {
     }
   },
   secretKey: 'ttcn',
-  publicKey: 'online-shopping'
+  limit: 10
 }

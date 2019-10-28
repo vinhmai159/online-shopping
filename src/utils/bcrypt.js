@@ -13,12 +13,17 @@ async function compareHashedPassword(normalPassword, hashedPassword) {
 }
 
 async function generateToken(payload) {
-    let token = jwt.sign({ payload }, configs.secretKey);
+    let token = await jwt.sign({ payload }, configs.secretKey);
     return token
 }
 
+async function decodeToken(token) {
+    let decodeToken = await jwt.verify(token, configs.secretKey)
+    return decodeToken.payload
+}
 export default {
     hashPassword,
     compareHashedPassword,
-    generateToken
+    generateToken,
+    decodeToken
 }

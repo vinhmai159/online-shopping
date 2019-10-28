@@ -9,13 +9,15 @@ function build(statusCode, data = {}, message = {}) {
 const statusCode = {
     success: 200,
     error: 400,
+    unauthorized: 401,
     notFound: 404
 }
 
 const message = {
     success: "Success",
     error: "Error",
-    notFound: "Not found"
+    notFound: "Not found",
+    unauthorized: "Unauthorized"
 }
 export default {
     build,
