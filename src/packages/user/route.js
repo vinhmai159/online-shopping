@@ -1,7 +1,7 @@
 const express = require('express');
 import UserController from './controller'
 import paramValidator from '../validator'
-import auth from '../middleware/auth';
+import isAuth from '../middleware/isAuth';
 
 const router = express.Router();
 
@@ -41,7 +41,7 @@ router.post('/login', paramValidator.user.validateLogin, UserController.login);
  * @apiVersion 1.0.0
  *
  */
-router.get('/currentUser', auth, UserController.getCurrent);
+router.get('/currentUser', isAuth, UserController.getCurrent);
 
 
 export default router

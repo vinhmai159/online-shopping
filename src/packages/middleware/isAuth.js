@@ -1,25 +1,23 @@
 import express from 'express'
+import bcrypt from '../../utils/bcrypt';
+import userRepository from '../user/repository';
 import responseBuilder from '../../utils/responseBuilder'
-import bcrypt from '../../utils/bcrypt'
-import {User} from '../../models'
-import userService from '../user/service'
 
 const router = express.Router()
 
 router.use(async (req, res, next) => {
-    const token = req.headers.authorization
+    const token = req.header('Authorization').replace('Bearer ', '');
+    const data = await bcrypt.decodeToken(token);
     try {
-        let user = await bcrypt.decodeToken(token)
-        user = await userService.isValidUser(user)
-
-        if (user && user.role === User.userRole.admin) {
-            next()
-        } else {
+        const user = await userRepository.findUser({ _id: data._id , email: data.email });
+        if (!user) {
             res.jsonp(responseBuilder.build(responseBuilder.statusCode.unauthorized, {}, responseBuilder.message.unauthorized))
         }
-    } catch (e) {
+        req.user = user;
+        req.token = token;
+        next();
+    } catch (error) {
         res.jsonp(responseBuilder.build(responseBuilder.statusCode.unauthorized, {}, responseBuilder.message.unauthorized))
     }
-})
-
-export default router
+});
+export default router;

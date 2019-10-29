@@ -2,7 +2,7 @@ import service from './service'
 import responseBuilder from  '../../utils/responseBuilder'
 import to from '../../utils/to'
 
-const { error: errorCode, success: successCode } = responseBuilder.statusCode;
+const { error: errorCode, success: successCode, notFound: notFoundCode } = responseBuilder.statusCode;
 const { successMessage, notFoundMessage } = responseBuilder.message;
 const buildRes = responseBuilder.build;
 
@@ -20,7 +20,7 @@ async function login(req, res) {
     res.jsonp(buildRes(errorCode, {}, error.message))
   }
   if (!user) {
-    res.jsonp(buildRes(responseBuilder.statusCode.notFound, {}, notFoundMessage))
+    res.jsonp(buildRes(notFoundCode, {}, notFoundMessage))
   }
   res.jsonp(buildRes(successCode, {user: user}, successMessage))
 }

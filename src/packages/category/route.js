@@ -1,11 +1,11 @@
 import express from 'express'
 import CategoryController from './controller'
 import paramValidator from '../validator'
-import isAdmin from '../authentication/isAdmin'
+import isAdmin from '../middleware/isAdmin'
 
 const router = express.Router()
 
-router.use('*', isAdmin)
+router.use(isAdmin)
 
 /**
  * @api {get} /categories?page={page}&limit={limit}&search={search} Get all
