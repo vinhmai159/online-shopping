@@ -3,7 +3,7 @@ import userRoute from './packages/user/route'
 import categoryRoute from './packages/category/route'
 import apidocRoute from './packages/apidoc/route'
 
-const apiPath = '/api/v1.0.0'
+const apiPath = '/api/v1'
 
 export default () => {
   const api = Router()

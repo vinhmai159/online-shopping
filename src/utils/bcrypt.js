@@ -21,6 +21,7 @@ async function decodeToken(token) {
     let decodeToken = await jwt.verify(token, configs.secretKey)
     return decodeToken.payload
 }
+
 export default {
     hashPassword,
     compareHashedPassword,

@@ -1,5 +1,4 @@
 import service from './service'
-import requestInfor from '../../utils/requestInfor'
 import responseBuilder from  '../../utils/responseBuilder'
 import to from '../../utils/to'
 
@@ -21,7 +20,13 @@ async function login(req, res) {
   }
   res.jsonp(responseBuilder.build(responseBuilder.statusCode.success, {user: user}, responseBuilder.message.success))
 }
+
+async function getCurrent(req, res) {
+    res.jsonp(responseBuilder.build(responseBuilder.statusCode.success, req.user, responseBuilder.message.success));
+}
+
 export default {
   register,
-  login
+  login,
+  getCurrent,
 }

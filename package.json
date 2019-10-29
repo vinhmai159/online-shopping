@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/polyfill": "^7.6.0",
     "babel-register": "^6.26.0",
     "bcrypt": "^3.0.6",
     "bcryptjs": "^2.4.3",
@@ -25,7 +26,8 @@
     "lodash": "^4.17.15",
     "mongoose": "^5.7.6",
     "morgan": "^1.9.1",
-    "nodemon": "^1.19.4"
+    "nodemon": "^1.19.4",
+    "regenerator-runtime": "^0.13.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.4",
