@@ -6,7 +6,7 @@ import isAuth from './isAuth';
 const router = express.Router()
 
 router.use(isAuth, async (req, res, next) => {
-    const { user } = req.body;
+    const  user  = req.user;
     if (user && user.role === User.userRole.admin) {
         next();
     } else {

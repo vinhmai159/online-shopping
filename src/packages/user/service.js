@@ -1,7 +1,6 @@
 import repository from './repository'
 import bcrypt from  '../../utils/bcrypt'
-import queryBuilder from './queryBuilder'
-import {User} from "../../models"
+import { User } from "../../models"
 
 async function register(req) {
   let { email, password } = req
@@ -29,13 +28,7 @@ async function login(req) {
   return null
 }
 
-async function isValidUser(option) {
-  const user = repository.findUser(option, [])
-  return user
-}
-
 export default {
   register,
   login,
-  isValidUser
 }
