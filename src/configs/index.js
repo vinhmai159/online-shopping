@@ -1,5 +1,5 @@
 export default {
-  db: process.env.DB,
+  db: process.env.DB || 'mongodb://ttcn:ttcn123@ds339348.mlab.com:39348/shopping-online',
   dbOptions: (options) => {
     return {
       useCreateIndex: true,
